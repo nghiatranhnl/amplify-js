@@ -285,6 +285,7 @@ export class SyncEngine {
 									// #region Base & Sync queries
 									try {
 										await new Promise<void>((_resolve, _reject) => {
+											onTerminate.then(_reject);
 											const syncQuerySubscription =
 												this.syncQueriesObservable().subscribe({
 													next: message => {
